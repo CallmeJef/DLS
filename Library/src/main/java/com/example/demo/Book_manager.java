@@ -19,7 +19,7 @@ public class Book_manager {
 	 */
 	@Id
 	@Column(name="Classification_id")
-	private float Id;
+	private float id;
 	
 	@Column(name="Author")
 	private String author;
@@ -33,9 +33,9 @@ public class Book_manager {
 	@Column(name="Date")
 	private LocalDate date;
 	
-	public Book_manager(float Id, String author, String title, String subject, LocalDate date) 
+	public Book_manager(float id, String author, String title, String subject, LocalDate date) 
 	{
-		this.Id=Id;
+		this.id=id;
 		this.author=author;
 		this.title=title;
 		this.subject=subject;
@@ -43,7 +43,7 @@ public class Book_manager {
 	}
 	//Tiga kuha ng data para ma pasok sa Db gamit getter 
 	public float getId() 
-	{return Id;}
+	{return id;}
 	public String getauthor() 
 	{return author;}
 	public String gettitle()
@@ -54,8 +54,8 @@ public class Book_manager {
 	{return date;}
 	
 	//Tiga pasok ng data sa db galing sa getter.
-	public void setId(float Id) 
-	{this.Id=Id;}
+	public void setId(float id) 
+	{this.id=id;}
 	public void setauthor(String author) 
 	{this.author=author;}
 	public void settitle(String title) 
