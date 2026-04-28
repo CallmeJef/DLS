@@ -14,9 +14,12 @@ public class Book_manager {
 	int day;
 	int year;
 	
+	/*
+	 Tiga convert sa entity.
+	 */
 	@Id
 	@Column(name="Classification_id")
-	private float id;
+	private float Id;
 	
 	@Column(name="Author")
 	private String author;
@@ -30,17 +33,17 @@ public class Book_manager {
 	@Column(name="Date")
 	private LocalDate date;
 	
-	public Book_manager(float id, String author, String title, String subject, LocalDate date) 
+	public Book_manager(float Id, String author, String title, String subject, LocalDate date) 
 	{
-		this.id=id;
+		this.Id=Id;
 		this.author=author;
 		this.title=title;
 		this.subject=subject;
 		this.date=date;
 	}
 	//Tiga kuha ng data para ma pasok sa Db gamit getter 
-	public float getid() 
-	{return id;}
+	public float getId() 
+	{return Id;}
 	public String getauthor() 
 	{return author;}
 	public String gettitle()
@@ -51,8 +54,8 @@ public class Book_manager {
 	{return date;}
 	
 	//Tiga pasok ng data sa db galing sa getter.
-	public void setid(float id) 
-	{this.id=id;}
+	public void setId(float Id) 
+	{this.Id=Id;}
 	public void setauthor(String author) 
 	{this.author=author;}
 	public void settitle(String title) 
@@ -61,4 +64,5 @@ public class Book_manager {
 	{this.subject=subject;}
 	public void setdate(LocalDate date)
 	{this.date=date;}
+	
 }
