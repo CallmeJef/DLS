@@ -1,7 +1,9 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Book information")
+@RequestMapping("/BookInformation")
 public class BookControll {
 	//dito pumpupunta yung service para ma change ng control
 	private  BookService  service;
@@ -56,7 +58,7 @@ public class BookControll {
 	}
 	
 	@GetMapping("/search/Id")
-	public List<Book_manager>searchiId(@RequestParam float id) 
+	public Optional<Book_manager>searchiId(@RequestParam BigDecimal id) 
 	{
 		return service.searchById(id);
 		

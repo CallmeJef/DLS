@@ -1,7 +1,10 @@
 package com.example.demo;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService{
@@ -17,7 +20,7 @@ public class BookServiceImpl implements BookService{
 		}
 		
 		@Override
-		public List<Book_manager>searchById(float id)
+		public Optional<Book_manager>searchById(BigDecimal id)
 		{
 			return BookRepo.findById(id);
 		}

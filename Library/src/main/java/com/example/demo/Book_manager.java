@@ -3,6 +3,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
+
+import java.math.BigDecimal;
 import java.time.LocalDate; 
 @Entity
 @Table(name="Book information")
@@ -19,7 +21,7 @@ public class Book_manager {
 	 */
 	@Id
 	@Column(name="Classification_id")
-	private float id;
+	private BigDecimal id;
 	
 	@Column(name="Author")
 	private String author;
@@ -33,7 +35,7 @@ public class Book_manager {
 	@Column(name="Date")
 	private LocalDate date;
 	
-	public Book_manager(float id, String author, String title, String subject, LocalDate date) 
+	public Book_manager(BigDecimal id, String author, String title, String subject, LocalDate date) 
 	{
 		this.id=id;
 		this.author=author;
@@ -42,7 +44,7 @@ public class Book_manager {
 		this.date=date;
 	}
 	//Tiga kuha ng data para ma pasok sa Db gamit getter 
-	public float getId() 
+	public BigDecimal getId() 
 	{return id;}
 	public String getauthor() 
 	{return author;}
@@ -54,7 +56,7 @@ public class Book_manager {
 	{return date;}
 	
 	//Tiga pasok ng data sa db galing sa getter.
-	public void setId(float id) 
+	public void setId(BigDecimal id) 
 	{this.id=id;}
 	public void setauthor(String author) 
 	{this.author=author;}
