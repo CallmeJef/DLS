@@ -1,70 +1,72 @@
 package com.example.demo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
-import java.time.LocalDate; 
+import java.time.LocalDate;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
-@Table(name="Book information")
+@Table(name = "book_information")  
 public class Book_manager {
-	//int data type muna para sa date. Ang gagawin ay lalagay diyan ang inputs galing ui tas lalagay sa loob ng local date para mapagana.
-	//hindi ko pa nagagawa yung logic para sa date, wait muna
-	//baka lipat ko yan sa ui part para mas madali input?
-	int month;
-	int day;
-	int year;
-	
-	/*
-	 Tiga convert sa entity.
-	 */
-	@Id
-	@Column(name="Classification_id")
-	private BigDecimal id;
-	
-	@Column(name="Author")
-	private String author;
-	
-	@Column(name="Title")
-	private String title;
-	
-	@Column(name="Subject")
-	private String subject;
-	
-	@Column(name="Date")
-	private LocalDate date;
-	
-	public Book_manager(BigDecimal id, String author, String title, String subject, LocalDate date) 
-	{
-		this.id=id;
-		this.author=author;
-		this.title=title;
-		this.subject=subject;
-		this.date=date;
-	}
-	//Tiga kuha ng data para ma pasok sa Db gamit getter 
-	public BigDecimal getId() 
-	{return id;}
-	public String getauthor() 
-	{return author;}
-	public String gettitle()
-	{return title;}
-	public String getsubject() 
-	{return subject;}
-	public LocalDate getdate() 
-	{return date;}
-	
-	//Tiga pasok ng data sa db galing sa getter.
-	public void setId(BigDecimal id) 
-	{this.id=id;}
-	public void setauthor(String author) 
-	{this.author=author;}
-	public void settitle(String title) 
-	{this.title=title;}
-	public void setsubject(String subject) 
-	{this.subject=subject;}
-	public void setdate(LocalDate date)
-	{this.date=date;}
-	
+
+    @Id
+    @Column(name = "classification_id")
+    private BigDecimal id;
+
+    @Column(name = "author")
+    private String author;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "tubject")
+    private String subject;
+
+    @Column(name = "date")
+    private LocalDate date;
+
+   
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    //tracks kapag borrowed ang books
+    @Column(name = "is_borrowed", nullable = false)
+    private boolean isBorrowed = false;
+
+    //jpa constructors 
+    public Book_manager() {}
+
+    public Book_manager(BigDecimal id, String author, String title,
+                        String subject, LocalDate date, String imageUrl) {
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.subject = subject;
+        this.date = date;
+        this.imageUrl = imageUrl;
+        this.isBorrowed = false;
+    }
+
+    public BigDecimal getId() { return id; }
+    public void setId(BigDecimal id) { this.id = id; }
+
+    public String getAuthor() { return author; }
+    public void setAuthor(String author) { this.author = author; }
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getSubject() { return subject; }
+    public void setSubject(String subject) { this.subject = subject; }
+
+    public LocalDate getDate() { return date; }
+    public void setDate(LocalDate date) { this.date = date; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public boolean isBorrowed() { return isBorrowed; }
+    public void setBorrowed(boolean borrowed) { isBorrowed = borrowed; }
 }
